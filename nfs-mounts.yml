@@ -1,0 +1,32 @@
+---
+- name: Setup NFS Mounts
+  hosts: all
+  become: yes
+  vars:
+    jellyfin_media_share: "nas01:/volume1/media"
+    jellyfin_mount_dir: "/mnt/nfs/jellyfin_media"
+  
+  tasks:
+    - name: Install nfs-utils package
+      apt:
+        name: nfs-common
+        state: present
+      become: yes
+
+    - name: Create Jellyfin Media mount point
+      file:
+        path: "{{ jellyfin_mount_dir }}"
+        state: directory
+        mode: 0755
+
+    - name: Add Jellyfin Media map to /etc/fstab
+      lineinfile:
+        path: /etc/fstab
+        line: "{{ jellyfin_media_share }} {{ jellyfin_mount_dir }} nfs rw,hard,intr 0 0"
+        validate: "/bin/mount -v -t nfs {{ jellyfin_media_share }} {{ jellyfin_mount_dir }}"
+      notify: Mount NFS
+
+  handlers:
+    - name: Mount NFS
+      command: mount -a
+
