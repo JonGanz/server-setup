@@ -1,4 +1,4 @@
-# server-setup
+# Server Setup
 
 The purpose of this repo is to make the setting up, and restoring of my personal home
 server and quick, repeatable, and painless as possible. We'll start small and build out
@@ -30,6 +30,7 @@ bootable USB drive (via [Rufus](https://rufus.ie) for instance) or burning to a 
 your server is that decrepit. Insert your media, and start the server setup process.
 
 <<< There is a big missing section here when starting the installation process. >>>
+
 <<< Installed minimal version >>>
 
 #### Profile setup
@@ -44,7 +45,7 @@ Chose to "Install OpenSSH server". Then under "Import SSH identity", choose "fro
 Now enter the username under which you added the SSH key in the [Github](#GitHub) section.
 Leave "Allow password authentication over SSH" unchecked.
 
-#### <<< Something about sofware; the Snaps page >>>
+#### <<< Something about software; the Snaps page >>>
 Leave blank. We'll install what we need via scripts.
 
 ### Run the Setup script
