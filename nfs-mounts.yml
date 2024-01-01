@@ -23,7 +23,7 @@
       lineinfile:
         path: /etc/fstab
         line: "{{ jellyfin_media_share }} {{ jellyfin_mount_dir }} nfs rw,hard,intr 0 0"
-        validate: "/bin/mount -v -t nfs {{ jellyfin_media_share }} {{ jellyfin_mount_dir }}"
+        validate: "/bin/mount -v -t nfs %s"
       notify: Mount NFS
 
   handlers:
