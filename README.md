@@ -52,13 +52,13 @@ Leave blank. We'll install what we need via scripts.
 Now that the server is up and running, you should be able to SSH into it from the machine
 you selected earlier (the ones for which you uploaded the SSH public key). From there,
 open a terminal / Powershell and enter `ssh username@ip-address`, where username was
-selected in [Profile setup](#Profile setup) and `ip-address` can be found by running
+selected in [Profile setup](#Profile-setup) and `ip-address` can be found by running
 `ip a` on the server (we'll get this fixed up shortly).
 
 After connecting, run the following command to run the setup script.
 
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/JonGanz/server-setup/main/setup.sh)"
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/JonGanz/server-setup/main/setup.sh)"
 ```
 
 ## Sources

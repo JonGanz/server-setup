@@ -6,7 +6,7 @@ cd server-setup
 
 # Install Ansible.
 apt update
-apt install software-properties-common
+apt install -y software-properties-common
 add-apt-repository --yes --update ppa:ansible/ansible
 apt install -y ansible
 
