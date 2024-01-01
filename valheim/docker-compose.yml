@@ -14,8 +14,8 @@ services:
     ports:
       - 3456-3457:3456-3457/udp
     volumes:
-      - "${DOCKER_VOL}/valheim/milan/config:/config"
-      - "${DOCKER_VOL}/valheim/milan/data:/opt/valheim"
+      - milan_config:/config
+      - data:/opt/valheim
     restart: unless-stopped
 
   kids:
@@ -31,7 +31,12 @@ services:
     ports:
       - 3458-3459:3458-3459/udp
     volumes:
-      - "${DOCKER_VOL}/valheim/kids/config:/config"
-      - "${DOCKER_VOL}/valheim/kids/data:/opt/valheim"
+      - kids_config:/config
+      - data:/opt/valheim
     restart: unless-stopped
+
+volumes:
+  milan_config:
+  data:
+  kids_config:
 
