@@ -48,6 +48,12 @@ Leave "Allow password authentication over SSH" unchecked.
 #### <<< Something about software; the Snaps page >>>
 Leave blank. We'll install what we need via scripts.
 
+### Configure Static IP
+We _could_ configure the static IP with our Ansible scripts, however since we don't have
+full knowledge of the hardware this will be using, or the networks it will be connected
+to, it is simpler to stop and this point and simply assign the server a static IP based on
+MAC address from your router. Note the address you use, as it will be used later.
+
 ### Run the Setup script
 Now that the server is up and running, you should be able to SSH into it from the machine
 you selected earlier (the ones for which you uploaded the SSH public key). From there,
