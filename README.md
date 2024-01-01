@@ -1,7 +1,7 @@
 # Server Setup
 
-The purpose of this repo is to make the setting up, and restoring of my personal home
-server and quick, repeatable, and painless as possible. We'll start small and build out
+The purpose of this repo is to make the setting up and restoring of my personal home
+server quick, repeatable, and as painless as possible. We'll start small and build out
 from there.
 
 ## Setup Steps
@@ -38,7 +38,7 @@ Enter the name of the user you wish to have administering the server. Note your 
 and password.
 
 #### Upgrade to Ubuntu Pro
-Skip for now.
+Chose "Skip for now".
 
 #### SSH Setup
 Chose to "Install OpenSSH server". Then under "Import SSH identity", choose "from GitHub".
@@ -54,14 +54,22 @@ full knowledge of the hardware this will be using, or the networks it will be co
 to, it is simpler to stop and this point and simply assign the server a static IP based on
 MAC address from your router. Note the address you use, as it will be used later.
 
-### Run the Setup script
-Now that the server is up and running, you should be able to SSH into it from the machine
-you selected earlier (the ones for which you uploaded the SSH public key). From there,
-open a terminal / Powershell and enter `ssh username@ip-address`, where username was
-selected in [Profile setup](#Profile-setup) and `ip-address` can be found by running
-`ip a` on the server (we'll get this fixed up shortly).
+At this point you should be able to connect via SSH, so from the machine you selected
+earlier (the one(s) for which you uploaded the SSH public key), open a terminal /
+Powershell and enter `ssh username@ip-address`. `username` is the username you selected in
+[Profile setup](#profile-setup) and `ip-address` can be found by running `ip a` on the
+server.
 
-After connecting, run the following command to run the setup script.
+Now that you have an SSH session and a static IP configured, restart the server to make
+sure you get your new IP. In your SSH session:
+
+```
+sudo reboot
+```
+
+### Run the Setup script
+Once the server has rebooted, open an SSH session and run the following command to run the
+setup script.
 
 ```
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/JonGanz/server-setup/main/setup.sh)"
