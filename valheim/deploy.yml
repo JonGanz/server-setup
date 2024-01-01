@@ -1,0 +1,16 @@
+---
+- name: Deploy Valheim Containers
+  hosts: all
+  become: true
+  tasks:
+    - name: Install Docker Compose
+      apt:
+        name: docker-compose
+        state: present
+      become: true
+
+    - name: Run Docker Compose
+      docker_compose:
+        project_src: ./
+        state: present
+

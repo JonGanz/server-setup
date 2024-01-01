@@ -78,4 +78,4 @@ sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/JonGanz/server-setu
 ## Sources
 - [Quickly set up GitHub SSH example](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/GitHub-SSH-Key-Setup-Config-Ubuntu-Linux)
 - [How to Use Ansible to Automate Initial Server Setup on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-automate-initial-server-setup-on-ubuntu-20-04)
-
+- [How To Set Up an NFS Mount on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-ubuntu-20-04)

@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+
+  milan:
+    image: lloesche/valheim-server:latest
+    env_file: ../.env
+    environment:
+      - SERVER_PASS=secret
+      - SERVER_NAME=TheORG
+      - WORLD_NAME=Fluffytown
+      - SERVER_PORT=3456
+      - PERMITTEDLIST_IDS=76561198082889821 76561199003527541 76561198203262087
+    ports:
+      - 3456-3457:3456-3457/udp
+    volumes:
+      - "${DOCKER_VOL}/valheim/milan/config:/config"
+      - "${DOCKER_VOL}/valheim/milan/data:/opt/valheim"
+    restart: unless-stopped
+
+  kids:
+    image: lloesche/valheim-server:latest
+    env_file: ../.env
+    environment:
+      - SERVER_PASS=secret
+      - SERVER_NAME=Home
+      - SERVER_PUBLIC=false
+      - WORLD_NAME=KidTown
+      - SERVER_PORT=3458
+      - PERMITTEDLIST_IDS=76561199591347877 76561199185985044 76561198082889821 76561199003527541
+    ports:
+      - 3458-3459:3458-3459/udp
+    volumes:
+      - "${DOCKER_VOL}/valheim/kids/config:/config"
+      - "${DOCKER_VOL}/valheim/kids/data:/opt/valheim"
+    restart: unless-stopped
+
