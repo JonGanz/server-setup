@@ -15,5 +15,6 @@ add-apt-repository --yes --update ppa:ansible/ansible
 apt install -y ansible
 
 # Do the install/updates.
+chmod +x update.sh
 . update.sh
 
