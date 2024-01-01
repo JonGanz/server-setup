@@ -3,7 +3,7 @@
   hosts: all
   become: yes
   vars:
-    jellyfin_media_share: "//nas01:/volume1/media"
+    jellyfin_media_share: "//192.168.1.180:/volume1/media"
     jellyfin_mount_dir: "/nfs/jellyfin_media"
   
   tasks:
