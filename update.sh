@@ -1,3 +1,4 @@
 #!/bin/bash
 
-# TODO: Run the playbooks.
+ansible-playbook -i localhost, -c local server-setup.yml
+
