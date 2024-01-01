@@ -14,3 +14,9 @@
         project_src: ./
         state: present
 
+    - name: Open ports for Valheim Milan
+      shell: "ufw allow 3456:3457/udp comment 'Valheim-Milan'"
+
+    - name: Open ports for Valheim Kids
+      shell: "ufw allow 3458:3459/udp comment 'Valheim-Kids'"
+
