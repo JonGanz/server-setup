@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+
+  tandoor_db:
+    image: postgres:15-alpine 
+    env_file: ../.env
+    environment:
+      - POSTGRES_DB=djangodb
+      - POSTGRES_PASSWORD=password1
+      - POSTGRES_USER=djangouser
+    ports:
+    volumes:
+      - postgresql:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  tandoor_web:
+    image: vabene1111/recipes
+    env_file: ../.env
+    environment:
+      - POSTGRES_DB=djangodb
+      - POSTGRES_HOST=tandoor_db
+      - POSTGRES_PASSWORD=password1
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=djangouser
+      - SECRET_KEY=password2
+    ports:
+      - 8080:80
+    volumes:
+      - staticfiles:/opt/recipes/staticfiles
+      - mediafiles:/opt/recipes/mediafiles
+    restart: unless-stopped
+    depends_on:
+      - tandoor_db
+
+volumes:
+  postgresql:
+  staticfiles:
+  mediafiles:
+
